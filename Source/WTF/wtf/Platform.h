@@ -775,7 +775,7 @@
 #endif
 
 /* Disable JIT on x32 */
-#if CPU(X32)
+#if CPU(X32) || CPU(AARCH64)
 #define ENABLE_JIT 0
 #endif
 
