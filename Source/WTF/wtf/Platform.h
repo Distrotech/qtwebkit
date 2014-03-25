@@ -86,7 +86,10 @@
 /* CPU(MIPS) - MIPS 32-bit */
 /* Note: Only O32 ABI is tested, so we enable it for O32 ABI for now.  */
 #elif (defined(mips) || defined(__mips__) || defined(MIPS) || defined(_MIPS_)) \
-    && defined(_ABIO32)
+    && defined(_ABIO32) || defined(_ABI64))
+#if defined(_ABI64)
+#define WTF_CPU_MIPS64 1
+#endif
 #define WTF_CPU_MIPS 1
 #define WTF_MIPS_ARCH __mips
 #endif
@@ -775,7 +778,7 @@
 #endif
 
 /* Disable JIT on x32 */
-#if CPU(X32) || CPU(AARCH64)
+#if CPU(X32) || CPU(AARCH64) || CPU(MIPS64)
 #define ENABLE_JIT 0
 #endif
 
