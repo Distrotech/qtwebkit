@@ -86,7 +86,7 @@
 /* CPU(MIPS) - MIPS 32-bit */
 /* Note: Only O32 ABI is tested, so we enable it for O32 ABI for now.  */
 #elif (defined(mips) || defined(__mips__) || defined(MIPS) || defined(_MIPS_)) \
-    && defined(_ABIO32) || defined(_ABI64))
+    && (defined(_ABIO32) || defined(_ABI64))
 #if defined(_ABI64)
 #define WTF_CPU_MIPS64 1
 #endif
