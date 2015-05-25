@@ -185,7 +185,7 @@ inline bool weakCompareAndSwap(unsigned* location, unsigned expected, unsigned n
 inline bool weakCompareAndSwap(void*volatile* location, void* expected, void* newValue)
 {
 #if ENABLE(COMPARE_AND_SWAP)
-#if CPU(X86_64)
+#if CPU(X86_64) && !defined(__ILP32__)
     bool result;
     asm volatile(
         "lock; cmpxchgq %3, %2\n\t"
